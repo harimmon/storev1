@@ -1,0 +1,23 @@
+{{> layout/header}}
+
+<section>
+    <a href="/store/1/update-form">수정화면가기</a>
+    <form action="/store/1/delete" method="post">
+        <button type="submit">삭제</button>
+    </form>
+    <div>
+        번호 : 1 <br>
+        상품명 : 바나나 <br>
+        상품가격 : 3000원 <br>
+        상품재고 : 100개 <br>
+    </div>
+    <form action="#">
+        <input type="hidden" value="1">
+        <input type="text" placeholder="당신은 누구인가요?">
+        <input type="text" placeholder="Enter 개수">
+        <button type="submit">구매</button>
+    </form>
+</section>
+
+</body>
+</html>
