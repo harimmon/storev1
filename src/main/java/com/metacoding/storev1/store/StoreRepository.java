@@ -24,6 +24,12 @@ public class StoreRepository {
         query.executeUpdate();
     }
 
+    // TODO: 상세보기 1
+    public Store findById(int id) {
+        Query query = em.createNativeQuery("select * from store_tb where id = ?", Store.class);
+        return (Store) query.getSingleResult();
+    }
+
     public List<Store> findAll() {
         // 조건 : 오브젝트 매핑은 @Entity가 붙어야지만 가능하다. (디폴트 생성자를 호출)
         Query query = em.createNativeQuery("select * from store_tb order by id desc", Store.class);
