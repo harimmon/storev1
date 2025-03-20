@@ -26,7 +26,6 @@ public class StoreController {
         return "store/list";
     }
 
-    // TODO: 상세보기 2
     @GetMapping("/store/{id}")
     public String detail(@PathVariable("id") int id, HttpServletRequest request) {
         Store store = storeService.상세보기(id);

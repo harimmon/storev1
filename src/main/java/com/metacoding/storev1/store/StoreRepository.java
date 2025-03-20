@@ -24,7 +24,6 @@ public class StoreRepository {
         query.executeUpdate();
     }
 
-    // TODO: 상세보기 1
     public Store findById(int id) {
         Query query = em.createNativeQuery("select * from store_tb where id = ?", Store.class);
         query.setParameter(1, id);
