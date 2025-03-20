@@ -4,9 +4,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller // IoC(제어의 역전전) => HashSet
 public class StoreController {
+
+    private StoreService storeService;
+
+    public StoreController(StoreService storeService) {
+        this.storeService = storeService;
+    }
 
     @GetMapping("/")
     public String list() {
@@ -34,7 +41,11 @@ public class StoreController {
     }
 
     @PostMapping("/store/save")
-    public String save() {
+    public String save(@RequestParam("name") String name, @RequestParam("stock") int stock,
+            @RequestParam("price") int price) {
+
+        storeService.상품등록(name, stock, price);
+
         return "redirect:/";
     }
 

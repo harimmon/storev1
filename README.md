@@ -23,5 +23,4 @@ create table log_tb (
     buyer varchar(255),
     primary key (id)
 );
-);
 ```
