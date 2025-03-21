@@ -16,6 +16,13 @@ public class StoreRepository {
         this.em = em;
     }
 
+    // 1번 : board 프로젝트의 BoardRepository 참고
+    public void deleteByid(int id) {
+        Query query = em.createNativeQuery("delete from store_tb where id = ?");
+        query.setParameter(1, id);
+        query.executeUpdate();
+    }
+
     public void save(String name, int stock, int price) {
         Query query = em.createNativeQuery("insert into store_tb(name, stock, price) values(?,?,?)");
         query.setParameter(1, name);
@@ -27,7 +34,11 @@ public class StoreRepository {
     public Store findById(int id) {
         Query query = em.createNativeQuery("select * from store_tb where id = ?", Store.class);
         query.setParameter(1, id);
-        return (Store) query.getSingleResult();
+        try {
+            return (Store) query.getSingleResult();
+        } catch (Exception e) { // NoResultException
+            return null;
+        }
     }
 
     public List<Store> findAll() {

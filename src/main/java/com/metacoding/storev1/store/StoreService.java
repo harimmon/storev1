@@ -14,6 +14,19 @@ public class StoreService {
         this.storeRepository = storeRepository;
     }
 
+    // 3번 : board 프로젝트의 BoardService 참고
+    @Transactional // insert, delete, update시에 사용 : 함수 종료시 commit 됨
+    public void 상품삭제(int id) {
+        // 1. 상품 있어?
+        Store store = storeRepository.findById(id);
+
+        if (store == null)
+            throw new RuntimeException("상품없어");
+
+        // 3. 삭제
+        storeRepository.deleteByid(id); // write (DML = insert, delete, update)
+    }
+
     @Transactional
     public void 상품등록(String name, int stock, int price) {
         storeRepository.save(name, stock, price);
