@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.servlet.http.HttpServletRequest;
 
-@Controller // IoC(제어의 역전전) => HashSet
+@Controller // IoC(제어의 역전) => HashSet
 public class StoreController {
 
     private StoreService storeService;
