@@ -48,7 +48,11 @@ public class StoreRepository {
     }
 
     public void updateById(int id, String name, String stock, String price) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateById'");
+        Query query = em.createNativeQuery("update store_tb set name = ?, stock = ?, price=? where id = ?");
+        query.setParameter(1, name);
+        query.setParameter(2, stock);
+        query.setParameter(3, price);
+        query.setParameter(4, id);
+        query.executeUpdate();
     }
 }
