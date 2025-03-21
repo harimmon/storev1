@@ -65,8 +65,8 @@ public class StoreController {
     @PostMapping("/store/{id}/update")
     public String update(@PathVariable("id") int id,
             @RequestParam("name") String name,
-            @RequestParam("stock") String stock,
-            @RequestParam("price") String price) {
+            @RequestParam("stock") int stock,
+            @RequestParam("price") int price) {
 
         storeService.상품수정(id, name, stock, price);
 
