@@ -46,4 +46,9 @@ public class StoreRepository {
         Query query = em.createNativeQuery("select * from store_tb order by id desc", Store.class);
         return query.getResultList();
     }
+
+    public void updateById(int id, String name, String stock, String price) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'updateById'");
+    }
 }
