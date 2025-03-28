@@ -1,15 +1,15 @@
 package com.metacoding.storev1.store;
 
-import java.util.List;
-
-import org.springframework.stereotype.Repository;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
+import org.springframework.stereotype.Repository;
 
-@Repository
+import java.util.List;
+
+@Repository // 데이터베이스랑 연결된 클래스 라고 알려주는 역할
 public class StoreRepository {
 
+    // EntityManager(엔터티 매니저) → 데이터베이스랑 소통하는 도구 (과일 정보를 가져오거나 저장할 때 필요)
     private EntityManager em;
 
     public StoreRepository(EntityManager em) {
